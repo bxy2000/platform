@@ -1,0 +1,31 @@
+{
+  "platformApp": {
+    "dataCatalog": {
+      "home": {
+        "title": "Data Catalogs",
+        "createLabel": "创建新 Data Catalog",
+        "createOrEditLabel": "创建或编辑 Data Catalog",
+        "notFound": "No Data Catalogs found"
+      },
+      "created": "Data Catalog {{ param }} 创建成功",
+      "updated": "Data Catalog {{ param }} 更新成功",
+      "deleted": "Data Catalog {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Data Catalog {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Data Catalog"
+      },
+      "title": "Title",
+      "type": "Type",
+      "icon": "Icon",
+      "tableName": "Table Name",
+      "tableType": "Table Type",
+      "remarks": "Remarks",
+      "relationGraph": "Relation Graph",
+      "children": "Children",
+      "dbConnection": "Db Connection",
+      "parent": "Parent"
+    }
+  }
+}

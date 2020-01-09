@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="platformApp.dataPrimaryKey.home.title">Data Primary Keys</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-data-primary-key" [routerLink]="['/data-primary-key/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="platformApp.dataPrimaryKey.home.createLabel">
+            Create a new Data Primary Key
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="dataPrimaryKeys?.length === 0">
+        <span jhiTranslate="platformApp.dataPrimaryKey.home.notFound">No dataPrimaryKeys found</span>
+    </div>
+    <div class="table-responsive" *ngIf="dataPrimaryKeys?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="platformApp.dataPrimaryKey.name">Name</span></th>
+            <th><span jhiTranslate="platformApp.dataPrimaryKey.fields">Fields</span></th>
+            <th><span jhiTranslate="platformApp.dataPrimaryKey.remarks">Remarks</span></th>
+            <th><span jhiTranslate="platformApp.dataPrimaryKey.stop">Stop</span></th>
+            <th><span jhiTranslate="platformApp.dataPrimaryKey.createDate">Create Date</span></th>
+            <th><span jhiTranslate="platformApp.dataPrimaryKey.updateDate">Update Date</span></th>
+            <th><span jhiTranslate="platformApp.dataPrimaryKey.modifyDate">Modify Date</span></th>
+            <th><span jhiTranslate="platformApp.dataPrimaryKey.dataCatalog">Data Catalog</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dataPrimaryKey of dataPrimaryKeys ;trackBy: trackId">
+                <td><a [routerLink]="['/data-primary-key', dataPrimaryKey.id, 'view' ]">{{dataPrimaryKey.id}}</a></td>
+                <td>{{dataPrimaryKey.name}}</td>
+                <td>{{dataPrimaryKey.fields}}</td>
+                <td>{{dataPrimaryKey.remarks}}</td>
+                <td>{{dataPrimaryKey.stop}}</td>
+                <td>{{dataPrimaryKey.createDate | date:'medium'}}</td>
+                <td>{{dataPrimaryKey.updateDate | date:'medium'}}</td>
+                <td>{{dataPrimaryKey.modifyDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="dataPrimaryKey.dataCatalog">
+                        <a [routerLink]="['/data-catalog', dataPrimaryKey.dataCatalog?.id, 'view' ]" >{{dataPrimaryKey.dataCatalog?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/data-primary-key', dataPrimaryKey.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/data-primary-key', dataPrimaryKey.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/data-primary-key', { outlets: { popup: dataPrimaryKey.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+{
+    "name": "DataCatalog",
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "icon",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tableName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tableType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remarks",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "relationGraph",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "dataCatalog",
+            "otherEntityRelationshipName": "parent",
+            "relationshipName": "children"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "databaseConnection",
+            "otherEntityRelationshipName": "dataCatalog",
+            "relationshipName": "dbConnection",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "dataCatalog",
+            "otherEntityRelationshipName": "children",
+            "relationshipName": "parent",
+            "otherEntityField": "title"
+        }
+    ],
+    "changelogDate": "20190807044208",
+    "javadoc": "数据目录",
+    "entityTableName": "data_catalog",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-data-fields-heading" jhiTranslate="platformApp.dataFields.home.createOrEditLabel">Create or edit a Data Fields</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platformApp.dataFields.fieldName" for="field_fieldName">Field Name</label>
+                    <input type="text" class="form-control" name="fieldName" id="field_fieldName"
+                           formControlName="fieldName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platformApp.dataFields.fieldType" for="field_fieldType">Field Type</label>
+                    <input type="text" class="form-control" name="fieldType" id="field_fieldType"
+                           formControlName="fieldType"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platformApp.dataFields.length" for="field_length">Length</label>
+                    <input type="number" class="form-control" name="length" id="field_length"
+                           formControlName="length"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platformApp.dataFields.scale" for="field_scale">Scale</label>
+                    <input type="number" class="form-control" name="scale" id="field_scale"
+                           formControlName="scale"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platformApp.dataFields.allowNull" for="field_allowNull">Allow Null</label>
+                    <input type="checkbox" class="form-control" name="allowNull" id="field_allowNull"
+                           formControlName="allowNull"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platformApp.dataFields.primaryKey" for="field_primaryKey">Primary Key</label>
+                    <input type="checkbox" class="form-control" name="primaryKey" id="field_primaryKey"
+                           formControlName="primaryKey"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platformApp.dataFields.remarks" for="field_remarks">Remarks</label>
+                    <input type="text" class="form-control" name="remarks" id="field_remarks"
+                           formControlName="remarks"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platformApp.dataFields.stop" for="field_stop">Stop</label>
+                    <input type="checkbox" class="form-control" name="stop" id="field_stop"
+                           formControlName="stop"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platformApp.dataFields.createDate" for="field_createDate">Create Date</label>
+                    <div class="d-flex">
+                        <input id="field_createDate" type="datetime-local" class="form-control" name="createDate" formControlName="createDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platformApp.dataFields.updateDate" for="field_updateDate">Update Date</label>
+                    <div class="d-flex">
+                        <input id="field_updateDate" type="datetime-local" class="form-control" name="updateDate" formControlName="updateDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platformApp.dataFields.modifyDate" for="field_modifyDate">Modify Date</label>
+                    <div class="d-flex">
+                        <input id="field_modifyDate" type="datetime-local" class="form-control" name="modifyDate" formControlName="modifyDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="platformApp.dataFields.dataCatalog" for="field_dataCatalog">Data Catalog</label>
+                    <select class="form-control" id="field_dataCatalog" name="dataCatalog" formControlName="dataCatalog">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="dataCatalogOption.id === editForm.get('dataCatalog').value?.id ? editForm.get('dataCatalog').value : dataCatalogOption" *ngFor="let dataCatalogOption of datacatalogs; trackBy: trackDataCatalogById">{{dataCatalogOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

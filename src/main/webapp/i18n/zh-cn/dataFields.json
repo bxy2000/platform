@@ -1,0 +1,33 @@
+{
+  "platformApp": {
+    "dataFields": {
+      "home": {
+        "title": "Data Fields",
+        "createLabel": "创建新 Data Fields",
+        "createOrEditLabel": "创建或编辑 Data Fields",
+        "notFound": "No Data Fields found"
+      },
+      "created": "Data Fields {{ param }} 创建成功",
+      "updated": "Data Fields {{ param }} 更新成功",
+      "deleted": "Data Fields {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Data Fields {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Data Fields"
+      },
+      "fieldName": "Field Name",
+      "fieldType": "Field Type",
+      "length": "Length",
+      "scale": "Scale",
+      "allowNull": "Allow Null",
+      "primaryKey": "Primary Key",
+      "remarks": "Remarks",
+      "stop": "Stop",
+      "createDate": "Create Date",
+      "updateDate": "Update Date",
+      "modifyDate": "Modify Date",
+      "dataCatalog": "Data Catalog"
+    }
+  }
+}

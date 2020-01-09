@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dataForeignKey">
+            <h2><span jhiTranslate="platformApp.dataForeignKey.detail.title">Data Foreign Key</span> {{dataForeignKey.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="platformApp.dataForeignKey.name">Name</span></dt>
+                <dd>
+                    <span>{{dataForeignKey.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataForeignKey.field">Field</span></dt>
+                <dd>
+                    <span>{{dataForeignKey.field}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataForeignKey.referenceTable">Reference Table</span></dt>
+                <dd>
+                    <span>{{dataForeignKey.referenceTable}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataForeignKey.referenceField">Reference Field</span></dt>
+                <dd>
+                    <span>{{dataForeignKey.referenceField}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataForeignKey.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{dataForeignKey.remarks}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataForeignKey.stop">Stop</span></dt>
+                <dd>
+                    <span>{{dataForeignKey.stop}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataForeignKey.createDate">Create Date</span></dt>
+                <dd>
+                    <span>{{dataForeignKey.createDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataForeignKey.updateDate">Update Date</span></dt>
+                <dd>
+                    <span>{{dataForeignKey.updateDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataForeignKey.modifyDate">Modify Date</span></dt>
+                <dd>
+                    <span>{{dataForeignKey.modifyDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataForeignKey.dataCatalog">Data Catalog</span></dt>
+                <dd>
+                    <div *ngIf="dataForeignKey.dataCatalog">
+                        <a [routerLink]="['/data-catalog', dataForeignKey.dataCatalog?.id, 'view']">{{dataForeignKey.dataCatalog?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/data-foreign-key', dataForeignKey.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

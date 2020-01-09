@@ -1,0 +1,29 @@
+{
+  "platformApp": {
+    "dataPrimaryKey": {
+      "home": {
+        "title": "Data Primary Keys",
+        "createLabel": "创建新 Data Primary Key",
+        "createOrEditLabel": "创建或编辑 Data Primary Key",
+        "notFound": "No Data Primary Keys found"
+      },
+      "created": "Data Primary Key {{ param }} 创建成功",
+      "updated": "Data Primary Key {{ param }} 更新成功",
+      "deleted": "Data Primary Key {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Data Primary Key {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Data Primary Key"
+      },
+      "name": "Name",
+      "fields": "Fields",
+      "remarks": "Remarks",
+      "stop": "Stop",
+      "createDate": "Create Date",
+      "updateDate": "Update Date",
+      "modifyDate": "Modify Date",
+      "dataCatalog": "Data Catalog"
+    }
+  }
+}

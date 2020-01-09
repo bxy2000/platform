@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dataCatalog">
+            <h2><span jhiTranslate="platformApp.dataCatalog.detail.title">Data Catalog</span> {{dataCatalog.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="platformApp.dataCatalog.title">Title</span></dt>
+                <dd>
+                    <span>{{dataCatalog.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataCatalog.type">Type</span></dt>
+                <dd>
+                    <span>{{dataCatalog.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataCatalog.icon">Icon</span></dt>
+                <dd>
+                    <span>{{dataCatalog.icon}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataCatalog.tableName">Table Name</span></dt>
+                <dd>
+                    <span>{{dataCatalog.tableName}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataCatalog.tableType">Table Type</span></dt>
+                <dd>
+                    <span>{{dataCatalog.tableType}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataCatalog.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{dataCatalog.remarks}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataCatalog.relationGraph">Relation Graph</span></dt>
+                <dd>
+                    <span>{{dataCatalog.relationGraph}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataCatalog.dbConnection">Db Connection</span></dt>
+                <dd>
+                    <div *ngIf="dataCatalog.dbConnection">
+                        <a [routerLink]="['/database-connection', dataCatalog.dbConnection?.id, 'view']">{{dataCatalog.dbConnection?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataCatalog.parent">Parent</span></dt>
+                <dd>
+                    <div *ngIf="dataCatalog.parent">
+                        <a [routerLink]="['/data-catalog', dataCatalog.parent?.id, 'view']">{{dataCatalog.parent?.title}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/data-catalog', dataCatalog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

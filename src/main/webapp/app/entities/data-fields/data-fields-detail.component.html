@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dataFields">
+            <h2><span jhiTranslate="platformApp.dataFields.detail.title">Data Fields</span> {{dataFields.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="platformApp.dataFields.fieldName">Field Name</span></dt>
+                <dd>
+                    <span>{{dataFields.fieldName}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataFields.fieldType">Field Type</span></dt>
+                <dd>
+                    <span>{{dataFields.fieldType}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataFields.length">Length</span></dt>
+                <dd>
+                    <span>{{dataFields.length}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataFields.scale">Scale</span></dt>
+                <dd>
+                    <span>{{dataFields.scale}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataFields.allowNull">Allow Null</span></dt>
+                <dd>
+                    <span>{{dataFields.allowNull}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataFields.primaryKey">Primary Key</span></dt>
+                <dd>
+                    <span>{{dataFields.primaryKey}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataFields.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{dataFields.remarks}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataFields.stop">Stop</span></dt>
+                <dd>
+                    <span>{{dataFields.stop}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataFields.createDate">Create Date</span></dt>
+                <dd>
+                    <span>{{dataFields.createDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataFields.updateDate">Update Date</span></dt>
+                <dd>
+                    <span>{{dataFields.updateDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataFields.modifyDate">Modify Date</span></dt>
+                <dd>
+                    <span>{{dataFields.modifyDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataFields.dataCatalog">Data Catalog</span></dt>
+                <dd>
+                    <div *ngIf="dataFields.dataCatalog">
+                        <a [routerLink]="['/data-catalog', dataFields.dataCatalog?.id, 'view']">{{dataFields.dataCatalog?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/data-fields', dataFields.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

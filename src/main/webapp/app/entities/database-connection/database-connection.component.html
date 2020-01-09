@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="platformApp.databaseConnection.home.title">Database Connections</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-database-connection" [routerLink]="['/database-connection/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="platformApp.databaseConnection.home.createLabel">
+            Create a new Database Connection
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="databaseConnections?.length === 0">
+        <span jhiTranslate="platformApp.databaseConnection.home.notFound">No databaseConnections found</span>
+    </div>
+    <div class="table-responsive" *ngIf="databaseConnections?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="connectionName"><span jhiTranslate="platformApp.databaseConnection.connectionName">Connection Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="host"><span jhiTranslate="platformApp.databaseConnection.host">Host</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="port"><span jhiTranslate="platformApp.databaseConnection.port">Port</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="databaseName"><span jhiTranslate="platformApp.databaseConnection.databaseName">Database Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="params"><span jhiTranslate="platformApp.databaseConnection.params">Params</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="type"><span jhiTranslate="platformApp.databaseConnection.type">Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="driver"><span jhiTranslate="platformApp.databaseConnection.driver">Driver</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="url"><span jhiTranslate="platformApp.databaseConnection.url">Url</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="username"><span jhiTranslate="platformApp.databaseConnection.username">Username</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="password"><span jhiTranslate="platformApp.databaseConnection.password">Password</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="test"><span jhiTranslate="platformApp.databaseConnection.test">Test</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let databaseConnection of databaseConnections ;trackBy: trackId">
+                <td><a [routerLink]="['/database-connection', databaseConnection.id, 'view' ]">{{databaseConnection.id}}</a></td>
+                <td>{{databaseConnection.connectionName}}</td>
+                <td>{{databaseConnection.host}}</td>
+                <td>{{databaseConnection.port}}</td>
+                <td>{{databaseConnection.databaseName}}</td>
+                <td>{{databaseConnection.params}}</td>
+                <td>{{databaseConnection.type}}</td>
+                <td>{{databaseConnection.driver}}</td>
+                <td>{{databaseConnection.url}}</td>
+                <td>{{databaseConnection.username}}</td>
+                <td>{{databaseConnection.password}}</td>
+                <td>{{databaseConnection.test}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/database-connection', databaseConnection.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/database-connection', databaseConnection.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/database-connection', { outlets: { popup: databaseConnection.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="databaseConnections?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

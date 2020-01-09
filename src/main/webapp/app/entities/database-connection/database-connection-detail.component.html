@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="databaseConnection">
+            <h2><span jhiTranslate="platformApp.databaseConnection.detail.title">Database Connection</span> {{databaseConnection.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="platformApp.databaseConnection.connectionName">Connection Name</span></dt>
+                <dd>
+                    <span>{{databaseConnection.connectionName}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.databaseConnection.host">Host</span></dt>
+                <dd>
+                    <span>{{databaseConnection.host}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.databaseConnection.port">Port</span></dt>
+                <dd>
+                    <span>{{databaseConnection.port}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.databaseConnection.databaseName">Database Name</span></dt>
+                <dd>
+                    <span>{{databaseConnection.databaseName}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.databaseConnection.params">Params</span></dt>
+                <dd>
+                    <span>{{databaseConnection.params}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.databaseConnection.type">Type</span></dt>
+                <dd>
+                    <span>{{databaseConnection.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.databaseConnection.driver">Driver</span></dt>
+                <dd>
+                    <span>{{databaseConnection.driver}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.databaseConnection.url">Url</span></dt>
+                <dd>
+                    <span>{{databaseConnection.url}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.databaseConnection.username">Username</span></dt>
+                <dd>
+                    <span>{{databaseConnection.username}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.databaseConnection.password">Password</span></dt>
+                <dd>
+                    <span>{{databaseConnection.password}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.databaseConnection.test">Test</span></dt>
+                <dd>
+                    <span>{{databaseConnection.test}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/database-connection', databaseConnection.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

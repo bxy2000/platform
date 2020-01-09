@@ -1,0 +1,26 @@
+{
+  "platformApp": {
+    "userExtends": {
+      "home": {
+        "title": "User Extends",
+        "createLabel": "创建新 User Extends",
+        "createOrEditLabel": "创建或编辑 User Extends",
+        "notFound": "No User Extends found"
+      },
+      "created": "User Extends {{ param }} 创建成功",
+      "updated": "User Extends {{ param }} 更新成功",
+      "deleted": "User Extends {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 User Extends {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "User Extends"
+      },
+      "username": "Username",
+      "gender": "Gender",
+      "mobile": "Mobile",
+      "user": "User",
+      "role": "Role"
+    }
+  }
+}

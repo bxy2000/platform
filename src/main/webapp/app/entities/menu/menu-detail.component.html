@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="menu">
+            <h2><span jhiTranslate="platformApp.menu.detail.title">Menu</span> {{menu.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="platformApp.menu.text">Text</span></dt>
+                <dd>
+                    <span>{{menu.text}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.menu.group">Group</span></dt>
+                <dd>
+                    <span>{{menu.group}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.menu.link">Link</span></dt>
+                <dd>
+                    <span>{{menu.link}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.menu.externalLink">External Link</span></dt>
+                <dd>
+                    <span>{{menu.externalLink}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.menu.target">Target</span></dt>
+                <dd>
+                    <span>{{menu.target}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.menu.icon">Icon</span></dt>
+                <dd>
+                    <span>{{menu.icon}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.menu.hide">Hide</span></dt>
+                <dd>
+                    <span>{{menu.hide}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.menu.description">Description</span></dt>
+                <dd>
+                    <span>{{menu.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.menu.parent">Parent</span></dt>
+                <dd>
+                    <div *ngIf="menu.parent">
+                        <a [routerLink]="['/menu', menu.parent?.id, 'view']">{{menu.parent?.text}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/menu', menu.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

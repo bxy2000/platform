@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="platformApp.dataForeignKey.home.title">Data Foreign Keys</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-data-foreign-key" [routerLink]="['/data-foreign-key/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="platformApp.dataForeignKey.home.createLabel">
+            Create a new Data Foreign Key
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="dataForeignKeys?.length === 0">
+        <span jhiTranslate="platformApp.dataForeignKey.home.notFound">No dataForeignKeys found</span>
+    </div>
+    <div class="table-responsive" *ngIf="dataForeignKeys?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="platformApp.dataForeignKey.name">Name</span></th>
+            <th><span jhiTranslate="platformApp.dataForeignKey.field">Field</span></th>
+            <th><span jhiTranslate="platformApp.dataForeignKey.referenceTable">Reference Table</span></th>
+            <th><span jhiTranslate="platformApp.dataForeignKey.referenceField">Reference Field</span></th>
+            <th><span jhiTranslate="platformApp.dataForeignKey.remarks">Remarks</span></th>
+            <th><span jhiTranslate="platformApp.dataForeignKey.stop">Stop</span></th>
+            <th><span jhiTranslate="platformApp.dataForeignKey.createDate">Create Date</span></th>
+            <th><span jhiTranslate="platformApp.dataForeignKey.updateDate">Update Date</span></th>
+            <th><span jhiTranslate="platformApp.dataForeignKey.modifyDate">Modify Date</span></th>
+            <th><span jhiTranslate="platformApp.dataForeignKey.dataCatalog">Data Catalog</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dataForeignKey of dataForeignKeys ;trackBy: trackId">
+                <td><a [routerLink]="['/data-foreign-key', dataForeignKey.id, 'view' ]">{{dataForeignKey.id}}</a></td>
+                <td>{{dataForeignKey.name}}</td>
+                <td>{{dataForeignKey.field}}</td>
+                <td>{{dataForeignKey.referenceTable}}</td>
+                <td>{{dataForeignKey.referenceField}}</td>
+                <td>{{dataForeignKey.remarks}}</td>
+                <td>{{dataForeignKey.stop}}</td>
+                <td>{{dataForeignKey.createDate | date:'medium'}}</td>
+                <td>{{dataForeignKey.updateDate | date:'medium'}}</td>
+                <td>{{dataForeignKey.modifyDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="dataForeignKey.dataCatalog">
+                        <a [routerLink]="['/data-catalog', dataForeignKey.dataCatalog?.id, 'view' ]" >{{dataForeignKey.dataCatalog?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/data-foreign-key', dataForeignKey.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/data-foreign-key', dataForeignKey.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/data-foreign-key', { outlets: { popup: dataForeignKey.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

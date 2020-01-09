@@ -1,0 +1,60 @@
+{
+    "name": "DataForeignKey",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "field",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "referenceTable",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "referenceField",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remarks",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stop",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updateDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modifyDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "dataCatalog",
+            "otherEntityRelationshipName": "dataForeignKey",
+            "relationshipName": "dataCatalog",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190807044210",
+    "javadoc": "外键表",
+    "entityTableName": "data_foreign_key",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,60 @@
+{
+    "name": "DatabaseConnection",
+    "fields": [
+        {
+            "fieldName": "connectionName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "host",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "port",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "databaseName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "params",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "driver",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "username",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "test",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190807044207",
+    "javadoc": "数据连接",
+    "entityTableName": "database_connection",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

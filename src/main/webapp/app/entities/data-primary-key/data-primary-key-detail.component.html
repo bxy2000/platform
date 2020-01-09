@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dataPrimaryKey">
+            <h2><span jhiTranslate="platformApp.dataPrimaryKey.detail.title">Data Primary Key</span> {{dataPrimaryKey.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="platformApp.dataPrimaryKey.name">Name</span></dt>
+                <dd>
+                    <span>{{dataPrimaryKey.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataPrimaryKey.fields">Fields</span></dt>
+                <dd>
+                    <span>{{dataPrimaryKey.fields}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataPrimaryKey.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{dataPrimaryKey.remarks}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataPrimaryKey.stop">Stop</span></dt>
+                <dd>
+                    <span>{{dataPrimaryKey.stop}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataPrimaryKey.createDate">Create Date</span></dt>
+                <dd>
+                    <span>{{dataPrimaryKey.createDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataPrimaryKey.updateDate">Update Date</span></dt>
+                <dd>
+                    <span>{{dataPrimaryKey.updateDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataPrimaryKey.modifyDate">Modify Date</span></dt>
+                <dd>
+                    <span>{{dataPrimaryKey.modifyDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="platformApp.dataPrimaryKey.dataCatalog">Data Catalog</span></dt>
+                <dd>
+                    <div *ngIf="dataPrimaryKey.dataCatalog">
+                        <a [routerLink]="['/data-catalog', dataPrimaryKey.dataCatalog?.id, 'view']">{{dataPrimaryKey.dataCatalog?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/data-primary-key', dataPrimaryKey.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
