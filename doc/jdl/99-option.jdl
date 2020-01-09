@@ -1,0 +1,3 @@
+paginate Role, UserExtends, DatabaseConnection, DataFields with pagination
+service all with serviceClass
+filter UserExtends, DatabaseConnection, DataCatalog, DataPrimaryKey, DataForeignKey, DataFields

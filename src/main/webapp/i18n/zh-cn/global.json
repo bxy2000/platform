@@ -7,6 +7,14 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "数据",
+        "userExtends": "User Extends",
+        "role": "Role",
+        "menu": "Menu",
+        "databaseConnection": "Database Connection",
+        "dataCatalog": "Data Catalog",
+        "dataPrimaryKey": "Data Primary Key",
+        "dataForeignKey": "Data Foreign Key",
+        "dataFields": "Data Fields",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

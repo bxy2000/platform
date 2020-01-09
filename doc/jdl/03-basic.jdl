@@ -1,0 +1,130 @@
+/**
+ 数据连接
+ */
+entity DatabaseConnection{
+    // 连接名称
+    connectionName String,
+    // 主机
+    host String,
+    // 端口
+    port String,
+    // 数据库名称
+    databaseName String,
+    // 参数
+    params String,
+	// 驱动类型：MySQL, SqlServer, Oracle, ...
+	type String,
+	// JDBC驱动
+	driver String,
+	// 数据库连接字符串
+	url String,
+	// 用户名
+	username String,
+	// 密码
+	password String,
+	// 测试通过
+	test Boolean
+}
+
+/**
+ 数据目录
+ */
+entity DataCatalog {
+	// 标题
+	title String,
+	// 类型：CATALOG, CONNECTION, TABLE
+	type String,
+	// 图标
+	icon String,
+	// 表名
+	tableName String,
+	// 表类型：数据表，视图
+	tableType String,
+	// 表备注
+	remarks String,
+	// 关系
+	relationGraph TextBlob
+}
+
+/**
+ 主键表
+ */
+entity DataPrimaryKey {
+	// 主键名称
+	name String,
+	// 主键列
+	fields String,
+	// 备注
+	remarks String,
+	// 停用
+	stop Boolean,
+	// 创建日期
+	createDate Instant,
+	// 更新日期
+	updateDate Instant,
+	// 修改日期
+	modifyDate Instant
+}
+
+/**
+ 外键表
+ */
+entity DataForeignKey {
+	// 外键名称
+	name String,
+	// 外键列
+	field String,
+	// 参照表名
+	referenceTable String,
+	// 参照列
+	referenceField String,
+	// 备注
+	remarks String,
+	// 停用
+	stop Boolean,
+	// 创建日期
+	createDate Instant,
+	// 更新日期
+	updateDate Instant,
+	// 修改日期
+	modifyDate Instant
+}
+
+/**
+ 数据表字段
+ */
+entity DataFields {
+	// 字段名
+	fieldName String,
+	// 类型
+	fieldType String,
+	// 长度
+	length Integer,
+	// 精度
+	scale Integer,
+	// 允许为空
+	allowNull Boolean,
+	// 主键
+	primaryKey Boolean,
+	// 备注
+	remarks String,
+	// 停用
+	stop Boolean,
+	// 创建日期
+	createDate Instant,
+	// 更新日期
+	updateDate Instant,
+	// 修改日期
+	modifyDate Instant,
+}
+
+relationship OneToMany {
+    DataCatalog{children(title)} to DataCatalog{parent(title)}
+}
+
+relationship ManyToOne {
+    DataCatalog{dbConnection} to DatabaseConnection,
+    DataPrimaryKey{dataCatalog} to DataCatalog,
+    DataForeignKey{dataCatalog} to DataCatalog,
+    DataFields{dataCatalog} to DataCatalog
+}

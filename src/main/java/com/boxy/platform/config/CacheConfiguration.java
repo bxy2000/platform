@@ -43,6 +43,20 @@ public class CacheConfiguration {
             createCache(cm, com.boxy.platform.domain.User.class.getName());
             createCache(cm, com.boxy.platform.domain.Authority.class.getName());
             createCache(cm, com.boxy.platform.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.boxy.platform.domain.UserExtends.class.getName());
+            createCache(cm, com.boxy.platform.domain.UserExtends.class.getName() + ".roles");
+            createCache(cm, com.boxy.platform.domain.Role.class.getName());
+            createCache(cm, com.boxy.platform.domain.Role.class.getName() + ".menus");
+            createCache(cm, com.boxy.platform.domain.Role.class.getName() + ".userExtends");
+            createCache(cm, com.boxy.platform.domain.Menu.class.getName());
+            createCache(cm, com.boxy.platform.domain.Menu.class.getName() + ".children");
+            createCache(cm, com.boxy.platform.domain.Menu.class.getName() + ".roles");
+            createCache(cm, com.boxy.platform.domain.DatabaseConnection.class.getName());
+            createCache(cm, com.boxy.platform.domain.DataCatalog.class.getName());
+            createCache(cm, com.boxy.platform.domain.DataCatalog.class.getName() + ".children");
+            createCache(cm, com.boxy.platform.domain.DataPrimaryKey.class.getName());
+            createCache(cm, com.boxy.platform.domain.DataForeignKey.class.getName());
+            createCache(cm, com.boxy.platform.domain.DataFields.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

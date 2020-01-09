@@ -317,6 +317,21 @@
             <artifactId>metrics-core</artifactId>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>7.0.0.jre8</version>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <version>8</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.boxy</groupId>-->
+            <!--<artifactId>tools</artifactId>-->
+            <!--<version>1.0-release</version>-->
+        <!--</dependency>-->
     </dependencies>
 
     <build>
